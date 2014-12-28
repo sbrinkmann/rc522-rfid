@@ -9,7 +9,7 @@
     "rfid",
     "rc522"
   ],
-  "version": "14.1.2",
+  "version": "14.1.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/sbrinkmann/rc522-rfid.git"
@@ -35,10 +35,5 @@
     "url": "https://github.com/sbrinkmann/rc522-rfid/issues"
   },
   "homepage": "",
-  "_id": "rc522-rfid@14.1.1",
-  "_shasum": "",
-  "_from": "rc522_rfid@14.1.0",
-  "_npmVersion": "2.1.0",
-  "_nodeVersion": "0.10.32",
   "directories": {}
 }
