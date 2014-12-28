@@ -4,15 +4,15 @@
     "email": "sascha.brinkmann@gmail.com"
   },
   "name": "rc522-rfid",
-  "description": "Library to access a RC522 rfid reader",
+  "description": "node.js module to access a rfid reader with rc522 chipset which is connected a raspberry pi",
   "keywords": [
     "rfid",
     "rc522"
   ],
-  "version": "14.1.0",
+  "version": "14.1.2",
   "repository": {
     "type": "git",
-    "url": "git://github.com/blackbeam/poppler-simple.git"
+    "url": "https://github.com/sbrinkmann/rc522-rfid.git"
   },
   "scripts": {
     "install": "(node-gyp rebuild) || (exit 0)",
@@ -25,18 +25,20 @@
     "node": ">=0.8.0 <0.12.0"
   },
   "dependencies": {
+
   },
-  "optionalDependencies": {},
+  "optionalDependencies": {
+
+  },
   "gitHead": "",
   "bugs": {
     "url": "https://github.com/sbrinkmann/rc522-rfid/issues"
   },
   "homepage": "",
-  "_id": "rc522-rfid@14.1.0",
+  "_id": "rc522-rfid@14.1.1",
   "_shasum": "",
   "_from": "rc522_rfid@14.1.0",
   "_npmVersion": "2.1.0",
   "_nodeVersion": "0.10.32",
-  "directories": {},
-  "readme": "ERROR: No README data found!"
+  "directories": {}
 }
