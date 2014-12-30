@@ -2,6 +2,7 @@ var logger = require('dachshund-logger').getLogger(__filename);
 var spawn = require('child_process').spawn;
 var readline = require('readline');
 var registeredCallback = null;
+var child = null;
 
 logger.info("RFID accessor initialization");
 
@@ -13,7 +14,7 @@ var mainProcessShutdown = false;
 
 var initChildProcess = function()
 {
-	var child = spawn("node", [__dirname + "/" + "rc522_output.js"]);
+	child = spawn("node", [__dirname + "/" + "rc522_output.js"]);
 	var linereader = readline.createInterface(child.stdout, child.stdin);
 
 	linereader.on('line', function (rfidTagSerialNumber) {
@@ -31,10 +32,18 @@ var initChildProcess = function()
 	});
 };
 
+// SIGTERM AND SIGINT will trigger the exit event.
+process.once("SIGTERM", function () {
+	process.exit(0);
+});
+process.once("SIGINT", function () {
+	process.exit(0);
+});
+
 // And the exit event shuts down the child.
 process.once("exit", function () {
 	mainProcessShutdown = true;
-	child.shutdown();
+	child.kill();
 });
 
 // This is a somewhat ugly approach, but it has the advantage of working
@@ -46,7 +55,7 @@ process.once("uncaughtException", function (error) {
 	// exception is going to do the sensible thing and call process.exit().
 	if (process.listeners("uncaughtException").length === 0) {
 		mainProcessShutdown = true;
-		child.shutdown();
+		child.kill();
 		throw error;
 	}
 });
