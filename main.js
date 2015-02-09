@@ -1,10 +1,8 @@
-var logger = require('dachshund-logger').getLogger(__filename);
 var spawn = require('child_process').spawn;
 var readline = require('readline');
 var registeredCallback = null;
 var child = null;
 
-logger.info("RFID accessor initialization");
 
 module.exports = exports = function(givenCallback){
 	registeredCallback = givenCallback;
